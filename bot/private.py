@@ -51,9 +51,9 @@ def enter_files(_, msg: types.Message):
 
             type = msg.document or msg.video or msg.photo or msg.audio
 
-            if type.file_size > 2000000000:
+            if type.file_size > 2097152000:
                 msg.reply(Msg.too_big)
-            elif len(list_dir(uid)) > 501:
+            elif len(list_dir(uid)) > 500:
                 msg.reply(Msg.too_much)
             else:
                 downsts = msg.reply(Msg.downloading, True)  # send status-download message
